@@ -5,7 +5,7 @@
       "recipientId": 1,
       "title": "jiberrish",
       "amountNeeded": 5000,
-      "descripition": "I need to buy my kids icecream yo."
+      "description": "I need to buy my kids icecream yo."
     },
     {
       "title": "no",
@@ -25,6 +25,22 @@
       "donorName": "james",
       "amountDonated": "4000000",
       "pitchesId": "1",
+      "id": 2
+    }
+  ],
+  "recipients": [
+    {
+      "id": 1,
+      "recipientName": "Lyana",
+      "email": "sparkles@aol.com",
+      "username": "Jmoney",
+      "password": "spiderman"
+    },
+    {
+      "recipientName": "tim",
+      "email": "hardlife@yahoo.com",
+      "username": "toughcookie",
+      "password": "needcash",
       "id": 2
     }
   ]

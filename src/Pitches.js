@@ -4,6 +4,7 @@ import { useOutletContext } from 'react-router-dom'
 import PitchCard from './PitchCard'
 
 
+
 function Pitches(){
     const {pitches} = useOutletContext()
    

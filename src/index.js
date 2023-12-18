@@ -10,6 +10,8 @@ import Pitches from './Pitches';
 import RecipientDash from './RecipientDash';
 import Donate from './Donate';
 import Pitch from './Pitch';
+import NewRecipient from './NewRecipient';
+import Login from './Login';
 const routes = [
   {
     path: "/",
@@ -42,6 +44,14 @@ const routes = [
       {
         path: "/pitches/:id",
         element: <Pitch/>
+      },
+      {
+        path: "/recipient/login",
+        element: <Login/>
+      },
+      {
+        path: "/recipient/createnew",
+        element: <NewRecipient/>
       }
     ]
   }
