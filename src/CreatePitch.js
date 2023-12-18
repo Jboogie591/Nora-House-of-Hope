@@ -1,28 +1,35 @@
 
 import React,{useState,useEffect} from 'react'
+import { useOutletContext } from 'react-router-dom';
 
 
 function CreatePitch(){ 
-
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState(""); 
-    const [amount, setAmount] = useState("");  
+    const {setPitches,newPitch}=useOutletContext()
+    
+    const [pitchData,setPitchData] = useState({});
+    const {title,description,amount} = pitchData
     
     const handleChange = (event) => {
-        if (event.target.name === "pitchTitle") {
-            setTitle(event.target.value)
-        }
-        else if (event.target.name === "pitchStory") {
-            setDescription(event.target.value)
-        }
-        else if (event.target.name === "AmountNeeded") {
-            setAmount(event.target.value)
-        }
+       const {value,name}= event.target
+        setPitchData((currentStatePitchData) =>{
+            return{...currentStatePitchData,
+            [name]: value}
+        })
     }
 
-    const submitForm = (event) => {
+    const submitPitch = (event) => {
         event.preventDefault()
-    }
+        console.log(pitchData)
+        fetch("http://localhost:8000/pitches",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(pitchData)
+        })
+        .then((resp)=> resp.json())
+        .then((data) => {newPitch(data)})
+      }
 
 
     return(
@@ -35,7 +42,7 @@ function CreatePitch(){
             <label for="pitchInput">Pitch Title:</label>
             <input
                 type= "text"
-                name= "pitchTitle"
+                name= "title"
                 id="pitchInput"
                 value= {title}
                 onChange={handleChange}
@@ -43,7 +50,7 @@ function CreatePitch(){
             <label for="pitchDesc">Pitch Description:</label>
             <input
                 type= "text"
-                name= "pitchStory"
+                name= "description"
                 id="pitchDesc"
                 value={description}
                 onChange={handleChange}
@@ -51,12 +58,12 @@ function CreatePitch(){
             <label for="amount">Amount Needed:</label>
             <input
                 type= "text"
-                name= "AmountNeeded"
+                name= "amountNeeded"
                 id="amount"
                 value={amount}
                 onChange={handleChange}
             />
-            <button type="submit" onClick={submitForm}>Submit Pitch</button>
+            <button type="submit" onClick={submitPitch}>Submit Pitch</button>
             
 
         </form>

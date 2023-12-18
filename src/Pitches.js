@@ -1,12 +1,24 @@
-import React from 'react'
+
+import React,{useEffect,useState} from 'react'
+import { useOutletContext } from 'react-router-dom'
+import PitchCard from './PitchCard'
+
 
 function Pitches(){
-
+    const {pitches} = useOutletContext()
+   
 
     return(
-        <h1>
-           Pitches
-        </h1>
+        <div>
+
+            {
+                pitches?.map(pitch=>{
+                    return(
+                       <PitchCard pitch={pitch}/>
+                    )
+                })
+            }
+        </div>
     )
 
 }
