@@ -4,9 +4,12 @@ function Homepage(){
 
 
     return(
-        <h1>
-            Homepage
-        </h1>
+        <div>
+            <h1 className='homepage-header'>
+                Nora's House of Hope
+            </h1>
+            <img src='IMG_7260.JPG' alt="Nora's House of Hope Logo" className='img-circle'/>
+        </div>
     )
 
 }

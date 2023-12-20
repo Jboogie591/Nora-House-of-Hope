@@ -34,36 +34,42 @@ function CreatePitch(){
 
     return(
 
-    <div>
+    <div className='create-pitch-container'>
         <h1>
            CreatePitch
         </h1> 
-        <form>
-            <label for="pitchInput">Pitch Title:</label>
-            <input
-                type= "text"
-                name= "title"
-                id="pitchInput"
-                value= {title}
-                onChange={handleChange}
-            />
-            <label for="pitchDesc">Pitch Description:</label>
-            <input
-                type= "text"
-                name= "description"
-                id="pitchDesc"
-                value={description}
-                onChange={handleChange}
-            />
-            <label for="amount">Amount Needed:</label>
-            <input
-                type= "text"
-                name= "amountNeeded"
-                id="amount"
-                value={amount}
-                onChange={handleChange}
-            />
-            <button type="submit" onClick={submitPitch}>Submit Pitch</button>
+        <form className='form-horizontal'>
+            <div className='form-group'>
+                <label for="pitchInput">Pitch Title:</label>
+                <input
+                    type= "text"
+                    name= "title"
+                    id="pitchInput"
+                    value= {title}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className='form-group'>
+                <label for="pitchDesc">Pitch Description:</label>
+                <input
+                    type= "text"
+                    name= "description"
+                    id="pitchDesc"
+                    value={description}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className='form-group'>
+                <label for="amount">Amount Needed:</label>
+                <input
+                    type= "text"
+                    name= "amountNeeded"
+                    id="amount"
+                    value={amount}
+                    onChange={handleChange}
+                />
+            </div>
+            <button type="submit" className='btn btn-default' onClick={submitPitch}>Submit Pitch</button>
             
 
         </form>
