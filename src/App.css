@@ -1,8 +1,22 @@
 .App {
   text-align: center;
- width: 100vw;
+  width: 100vw;
+  
 }
 
-.homepage-header{
-  
+.page-content {
+  margin: 3vh 5vw
+}
+
+.nav-logo-text{
+  font-family: Snell Roundhand, cursive;
+}
+
+.btn-spacing {
+  margin: 10px
+}
+
+.create-pitch-container {
+  width: 60%;
+  align-content: center;
 }

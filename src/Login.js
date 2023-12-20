@@ -46,35 +46,23 @@ function Login(){
 
     return(
         
-        <div>
+        <div className="col-md-6 offset-md-3">
             <h1>
-           Login
-        </h1>
-
-        <form>
-        <label for="username">Username:</label>
-            <input
-                type= "text"
-                name= "username"
-                id="username"
-                value={username}
-                onChange={handleChange}
-            />
-            <label for="password">Password:</label>
-            <input
-                type= "text"
-                name= "password"
-                id="password"
-                value={password}
-                onChange={handleChange}
-            />
-      
-        <button type="submit" onClick={submitLogin}>Login</button>
-    
-        
-        
-    
-        </form>
+                Login
+            </h1>
+            <form>
+            <div className="mb-3">
+                <label for="username" className="form-label">Email address</label>
+                <input type="username" name="username" className="form-control" id="username" value={username} onChange={handleChange}/>
+            </div>
+            <div clasNames="mb-3">
+                <label for="password" className="form-label">Password</label>
+                <input type="password"  name="password" className="form-control" id="password" value={password} onChange={handleChange}/>
+            </div>
+            <div className="btn-spacing">
+                <button type="submit" onClick={submitLogin}clasNames="btn btn-primary">Login</button>
+            </div>
+            </form>
     
     </div>
     )

@@ -14,12 +14,19 @@ function Pitch(){
     console.log(pitch)
     return(
         <div>
-            <h1>
+            <h1 className='display-4'>
                 {pitch && pitch.title}
             </h1>
-            <h1>
-               {pitch && pitch.amountNeeded}
-            </h1>
+            <figure class="text-end">
+                <blockquote className='blockquote'>
+                <p>
+                    <span>Amount Needed: {pitch && pitch.amountNeeded}</span>   
+                    <br/>
+                    <span>Amount Raised: {pitch && pitch.amountNeeded}</span>
+                </p>
+                </blockquote>
+            </figure>
+            <img src='https://picsum.photos/600/500?random' alt='Pitch cover photo'/>
             <p>
                {pitch && pitch.description}
             </p>

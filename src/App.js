@@ -2,6 +2,7 @@ import './App.css';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import Pitch from './Pitch';
+import NavBar from './NavBar';
 
 function App() {
   const [pitches,setPitches] = useState([])
@@ -22,10 +23,7 @@ function App() {
   }
 
   const handleLogin = (event) => {
-    console.log(event.target.inerText==="login")
-    console.log(event)
-    console.log(typeof event.target.innerText)
-    if (event.target.innerText=="login"){
+    if (event.target.innerText=="Login"){
       navigate("/recipient/login")
     }
     else {
@@ -46,19 +44,10 @@ function App() {
 
   return (
     <div className="App">
-       <button type="button" onClick={handleLogin}>{!!loggedInUser ?"logout":"login"}</button>
-      <nav class="navbar navbar-default navbar-fixed-top">
-        
-        <div class="container">
-        <ul class="nav nav-tabs">
-          <li role="presentation" class="active"><a href="/">Home</a></li>
-          <li role="presentation"onClick={handleLogin}><a href="#">{!!loggedInUser ?"logout":"login"}</a></li>
-          <li role="presentation"><a href="/pitches/create">Create New Pitch</a></li>
-          <li role="presentation"><a href="/pitches">Pitches</a></li>
-        </ul>
-        </div>
-      </nav>
-      <Outlet context={context}/>
+      <NavBar handleLogin={handleLogin} loggedInUser={loggedInUser}/>
+      <div className='page-content'>
+        <Outlet context={context}/>
+      </div>
     </div>
   );
 }

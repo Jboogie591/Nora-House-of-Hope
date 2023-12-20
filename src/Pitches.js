@@ -10,15 +10,18 @@ function Pitches(){
    
 
     return(
-        <div>
-
+        <div className="container text-center">
+            <div className="row g-3 align-items-center">
             {
                 pitches?.map(pitch=>{
                     return(
-                       <PitchCard pitch={pitch}/>
+                        <div className='col'>
+                            <PitchCard pitch={pitch}/>
+                       </div>
                     )
                 })
             }
+            </div>
         </div>
     )
 

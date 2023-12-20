@@ -1,9 +1,10 @@
 
 import React,{useState,useEffect} from 'react'
-import { useOutletContext } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 
 function CreatePitch(){ 
+    const navigate = useNavigate()
     const {setPitches,newPitch}=useOutletContext()
     
     const [pitchData,setPitchData] = useState({});
@@ -28,7 +29,10 @@ function CreatePitch(){
             body:JSON.stringify(pitchData)
         })
         .then((resp)=> resp.json())
-        .then((data) => {newPitch(data)})
+        .then((data) => {
+            newPitch(data)
+            navigate(`/pitches/${data.id}`)
+        })
       }
 
 
@@ -36,12 +40,15 @@ function CreatePitch(){
 
     <div className='create-pitch-container'>
         <h1>
-           CreatePitch
+           Create A New Pitch
         </h1> 
-        <form className='form-horizontal'>
-            <div className='form-group'>
-                <label for="pitchInput">Pitch Title:</label>
+
+       
+        <form >
+            <div className='mb-3'>
+                <label for="pitchInput" className='form-label'>Pitch Title:</label>
                 <input
+                    className='form-control'
                     type= "text"
                     name= "title"
                     id="pitchInput"
@@ -49,9 +56,10 @@ function CreatePitch(){
                     onChange={handleChange}
                 />
             </div>
-            <div className='form-group'>
+            <div className='mb-3'>
                 <label for="pitchDesc">Pitch Description:</label>
-                <input
+                <textarea
+                    className='form-control'
                     type= "text"
                     name= "description"
                     id="pitchDesc"
@@ -59,9 +67,10 @@ function CreatePitch(){
                     onChange={handleChange}
                 />
             </div>
-            <div className='form-group'>
+            <div className='mb-3'>
                 <label for="amount">Amount Needed:</label>
                 <input
+                    className='form-control'
                     type= "text"
                     name= "amountNeeded"
                     id="amount"
@@ -69,7 +78,7 @@ function CreatePitch(){
                     onChange={handleChange}
                 />
             </div>
-            <button type="submit" className='btn btn-default' onClick={submitPitch}>Submit Pitch</button>
+            <button type="submit" className='btn btn-info' onClick={submitPitch}>Submit Pitch</button>
             
 
         </form>
